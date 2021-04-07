@@ -1,14 +1,43 @@
 package main;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.Socket;
+import java.net.URI;
 import java.util.List;
 
 public class Main {
-    public static void main(String[] args) {
-        Server server = new Server(Config.PORT);
-        server.start();
+
+    static PrintWriter out;
+    static BufferedReader in;
+
+    public static void main(String[] args) throws IOException {
+//        URI uri = URI.create("ws://" + Config.IP + ":" + Config.PORT);
+//        Client client = new Client(uri);
+//        client.connect();
+        Socket clientSocket = new Socket(Config.IP, Config.PORT);
+        out = new PrintWriter(clientSocket.getOutputStream(), true);
+        in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+        String response = sendMessage("test");
+        System.out.println(response);
     }
+
+    public static String sendMessage(String msg) {
+        out.println(msg);
+        String resp = null;
+        try {
+            resp = in.readLine();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return resp;
+    }
+
 
     protected static void onRobotActionsReceived(List<RobotAction> robotActions) {
         //do something
+        System.out.println(robotActions.toString());
     }
 }

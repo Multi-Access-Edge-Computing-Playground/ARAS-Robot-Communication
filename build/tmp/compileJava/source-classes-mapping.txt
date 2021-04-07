@@ -2,6 +2,8 @@ main/Config.java
  main.Config
 main/RobotAction.java
  main.RobotAction
+main/Client.java
+ main.Client
 main/Main.java
  main.Main
 main/Server.java
