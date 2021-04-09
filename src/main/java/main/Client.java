@@ -22,6 +22,7 @@ public class Client extends WebSocketClient {
 
     @Override
     public void onMessage(String message) {
+        System.out.println("received: " + message);
         Gson gson = new Gson();
         JsonObject jsonObject = gson.fromJson(message, JsonObject.class);
         List<RobotAction> robotActions = new LinkedList<>();

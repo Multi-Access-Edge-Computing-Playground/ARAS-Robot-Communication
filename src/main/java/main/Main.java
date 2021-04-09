@@ -14,14 +14,14 @@ public class Main {
     static BufferedReader in;
 
     public static void main(String[] args) throws IOException {
-//        URI uri = URI.create("ws://" + Config.IP + ":" + Config.PORT);
-//        Client client = new Client(uri);
-//        client.connect();
-        Socket clientSocket = new Socket(Config.IP, Config.PORT);
-        out = new PrintWriter(clientSocket.getOutputStream(), true);
-        in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-        String response = sendMessage("test");
-        System.out.println(response);
+        URI uri = URI.create("ws://" + Config.IP + ":" + Config.PORT);
+        Client client = new Client(uri);
+        client.connect();
+//        Socket clientSocket = new Socket(Config.IP, Config.PORT);
+//        out = new PrintWriter(clientSocket.getOutputStream(), true);
+//        in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+//        String response = sendMessage("test");
+//        System.out.println(response);
     }
 
     public static String sendMessage(String msg) {
