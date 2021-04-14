@@ -9,9 +9,9 @@ import java.net.URI;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Client extends WebSocketClient {
+public class MyWebSocketClient extends WebSocketClient {
 
-    public Client(URI serverUri) {
+    public MyWebSocketClient(URI serverUri) {
         super(serverUri);
     }
 

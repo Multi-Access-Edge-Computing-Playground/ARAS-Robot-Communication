@@ -2,9 +2,7 @@ package main;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.PrintWriter;
-import java.net.Socket;
 import java.net.URI;
 import java.util.List;
 
@@ -15,8 +13,8 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         URI uri = URI.create("ws://" + Config.IP + ":" + Config.PORT);
-        Client client = new Client(uri);
-        client.connect();
+        MyWebSocketClient myWebSocketClient = new MyWebSocketClient(uri);
+        myWebSocketClient.connect();
 //        Socket clientSocket = new Socket(Config.IP, Config.PORT);
 //        out = new PrintWriter(clientSocket.getOutputStream(), true);
 //        in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
